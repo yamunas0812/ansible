@@ -7,7 +7,7 @@
   tasks:
   - name: print information
     vars:
-      course:"devops"
+      course: "devops"
     ansible.builtin.debug:
       msg: "Hi, learning {{course}} from {{trainer}} with duration of {{duration}}"
   - name: print information
