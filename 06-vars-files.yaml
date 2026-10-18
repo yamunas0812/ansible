@@ -1,10 +1,16 @@
 - name: variables from files
   hosts: localhost
-  vars_files:
-  - vars.yaml
+  vars_prompt:
+    - name: Username 
+      prompt: enter Username
+      private: false
+    - name: Password 
+      prompt: enter Password
+      private: true
+
   tasks:
    - name: print overide information
      ansible.builtin.debug:
-       msg: "Hi, learning {{course}} from {{trainer}} with duration of {{duration}}"
+       msg: "Username: {{Username}}, Password: {{Password}}"
 
 
