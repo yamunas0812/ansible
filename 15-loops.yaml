@@ -8,3 +8,14 @@
     - linux
     - shell
     - ansible
+
+- name: install package
+  hosts: web
+  tasks:
+  - name: install packages
+    ansible.builtin.debug:
+      msg: "install {{item}}"
+    loop:
+    - mysql
+    - nginx
+    - postfix
