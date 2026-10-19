@@ -13,3 +13,12 @@
   - name: conver to upper case
     ansible.builtin.debug:
       msg: "{{greeting | upper}}"
+
+- name: min and max
+  hosts: localhost
+  vars:
+    ags: [2,3,5]
+  tasks:
+  - name: print min and max
+    ansible.builtin.debug
+      msg: "min age: {{ags | min}}, max age : {{ags | max}}"
