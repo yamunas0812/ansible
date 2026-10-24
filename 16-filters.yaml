@@ -1,17 +1,18 @@
-- name: check number
+- name: Check number
   hosts: localhost
+  gather_facts: false
   vars_prompt:
-  - name : number
-    prompt: enter number
-    private: no
+    - name: number
+      prompt: Enter number
+      private: false
+
   tasks:
-  - name: number is less thak 10
-    ansible.builtin.debug:
-    msg: "given {{number}} is less than 10"
-    when: number < 10
+    - name: Number is less than 10
+      ansible.builtin.debug:
+        msg: "Given {{ number }} is less than 10"
+      when: number | int < 10
 
-  - name: number is greater than or equal 10
-    ansible.builtin.debug:
-    msg: "given {{number}} is greater than 10"
-    when: number >= 10
-
+    - name: Number is greater than or equal to 10
+      ansible.builtin.debug:
+        msg: "Given {{ number }} is greater than or equal to 10"
+      when: number | int >= 10
